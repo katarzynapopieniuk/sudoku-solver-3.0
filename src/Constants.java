@@ -8,6 +8,13 @@ public class Constants {
     public static final int MIDDLECOLUMNS = 20;
     public static final int RIGHTCOLUMNS = 30;
 
-    public static boolean EXISTS = true;
-    public static boolean DOESNTEXISTS = false;
+    public static final boolean EXISTS = true;
+    public static final boolean DOESNTEXISTS = false;
+
+    public static final int MINVALUE = 1;
+    public static final int MAXVALUE = 9;
+
+    public static final int GRIDSIZE = 9;
+    public static final int MININDEX = 0;
+    public static final int MAXINDEX = 8;
 }

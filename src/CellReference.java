@@ -1,6 +1,6 @@
 public class CellReference {
-    private Cell cell;
-    private boolean exists;
+    private final Cell cell;
+    private final boolean exists;
 
     public CellReference(Cell cell) {
         this.cell = cell;

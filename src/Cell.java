@@ -34,10 +34,6 @@ public class Cell {
         return squareNumber;
     }
 
-    public void setValue(int value) {
-        this.value = value;
-    }
-
     private int countSquareNumber() {
         return getRowSector() + getColumnSector();
     }
@@ -80,5 +76,21 @@ public class Cell {
 
     public Boolean isEmpty() {
         return value == Constants.NOVALUE;
+    }
+
+    public void resetValue() {
+        value = Constants.NOVALUE;
+    }
+
+    public boolean tryIncrementValue() {
+        if(value < Constants.MAXVALUE) {
+            value ++;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean hasSameCoordinates(Cell cell) {
+        return isInSameRow(cell) && isInSameColumn(cell);
     }
 }

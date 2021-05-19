@@ -1,14 +1,13 @@
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CellArrayTests {
 
     @Test
-    void whenGetInSameRowIsCalledCorrectSetShouldBeReturned() {
+    void whenGetInSameRowIsCalledCorrectListShouldBeReturned() {
         ArrayList<Cell> cells = new ArrayList<>();
         CellArray array = new CellArray(cells);
         ArrayList<Cell> expectedList = new ArrayList<>();
@@ -25,7 +24,7 @@ class CellArrayTests {
     }
 
     @Test
-    void whenGetInSameColumnIsCalledCorrectSetShouldBeReturned() {
+    void whenGetInSameColumnIsCalledCorrectListShouldBeReturned() {
         ArrayList<Cell> cells = new ArrayList<>();
         CellArray array = new CellArray(cells);
         ArrayList<Cell> expectedList = new ArrayList<>();
@@ -42,7 +41,7 @@ class CellArrayTests {
     }
 
     @Test
-    void whenGetInSameSquareIsCalledCorrectSetShouldBeReturned() {
+    void whenGetInSameSquareIsCalledCorrectListShouldBeReturned() {
         ArrayList<Cell> cells = new ArrayList<>();
         CellArray array = new CellArray(cells);
         ArrayList<Cell> expectedList = new ArrayList<>();
@@ -102,5 +101,41 @@ class CellArrayTests {
         CellArray array = new CellArray(cells);
         CellReference ref = array.getPreviousEmpty();
         assertFalse(ref.exists());
+    }
+
+    @Test
+    void whenValueIsValidShouldReturnTrue() {
+        ArrayList arrayList = new ArrayList();
+        Cell c1 = new Cell(1, 3, 1);
+        Cell c2 = new Cell(2, 3, 2);
+        Cell c3 = new Cell(4, 5, 1);
+        Cell c4 = new Cell(5, 4, 2);
+        arrayList.add(c1);
+        arrayList.add(c2);
+        arrayList.add(c3);
+        arrayList.add(c4);
+        CellArray cellArray = new CellArray(arrayList);
+        assertTrue(cellArray.doesValueMatchForCell(c1));
+        assertTrue(cellArray.doesValueMatchForCell(c2));
+        assertTrue(cellArray.doesValueMatchForCell(c3));
+        assertTrue(cellArray.doesValueMatchForCell(c4));
+    }
+
+    @Test
+    void whenValueIsIllegalShouldReturnFalse() {
+        ArrayList arrayList = new ArrayList();
+        Cell c1 = new Cell(1, 1, 1);
+        Cell c2 = new Cell(2, 2, 1);
+        Cell c3 = new Cell(1, 5, 1);
+        Cell c4 = new Cell(5, 1, 1);
+        arrayList.add(c1);
+        arrayList.add(c2);
+        arrayList.add(c3);
+        arrayList.add(c4);
+        CellArray cellArray = new CellArray(arrayList);
+        assertFalse(cellArray.doesValueMatchForCell(c1));
+        assertFalse(cellArray.doesValueMatchForCell(c2));
+        assertFalse(cellArray.doesValueMatchForCell(c3));
+        assertFalse(cellArray.doesValueMatchForCell(c4));
     }
 }
