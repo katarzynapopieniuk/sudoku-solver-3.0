@@ -74,5 +74,11 @@ public class Cell {
         return this.squareNumber == cell.getSquareNumber();
     }
 
+    public Cell getCopy() {
+        return new Cell(this.row, this.column, this.value);
+    }
 
+    public Boolean isEmpty() {
+        return value == Constants.NOVALUE;
+    }
 }
