@@ -15,4 +15,8 @@ public class CellArray {
     public HashSet<Cell> getCellsInSameColumn(Cell cell) {
         return (HashSet<Cell>) cells.stream().filter(c -> c.isInSameColumn(cell) && c != cell).collect(Collectors.toSet());
     }
+
+    public HashSet<Cell> getCellsInSameSquare(Cell cell) {
+        return (HashSet<Cell>) cells.stream().filter(c -> c.isInSameSquare(cell) && c != cell).collect(Collectors.toSet());
+    }
 }
